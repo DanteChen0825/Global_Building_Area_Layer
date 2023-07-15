@@ -2,25 +2,25 @@
     body { margin:0; padding:0; }
     #map { position:absolute; top:0; bottom:0; left: 0; width:100%; }
 
-    a:link {color: ghostwhite;}
-    a:visited {color: ghostwhite;}
+    a:link {color: #343434;}
+    a:visited {color: #343434;}
 
     .map-overlay {
         font: 20px/12px optima, sans- serifar;
         position: absolute;
-        width: 420px;
+        width: 470px;
         top: 0;
         left: 0;
         padding: 10px;
     }
 
     .map-overlay .map-overlay-inner {
-        background-color: rgba(0,0,0,0);
+        background-color: rgba(250, 249, 246,0.5);
         border-radius: 8px;
-        padding-top: 20px;
-        padding-right: 20px;
+        padding-top: 15px;
+        padding-right: 10px;
         padding-bottom: 5px;
-        padding-left: 20px;
+        padding-left: 10px;
         margin-bottom: 5px;
     }
 
@@ -32,75 +32,30 @@
     }
 
     .map-overlay h5 {
-        line-height: 40px;
-        display: block;
-        margin: 0 0 0 0px;
-        color: ghostwhite;
-    }
-
-    .bottom .bottom-inner {
-        font: 16px/12px optima, sans- serifar;
-        position: absolute;
-        width: 350px;
-        background-color: rgba(255,255,255,.05);
-        border-radius: 8px;
-        padding-top: 10px;
-        padding-right: 0px;
-        padding-bottom: 10px;
-        padding-left: 15px;
-        margin-bottom: 600px;
-        margin-left: 1055px;
-    }
-
-    .bottom .bottom-inner h5 {
-        line-height: 15px;
-        display: block;
-        margin: 0 0 5px;
-        color: ghostwhite;
-    }
-
-    .bottom .bottom-inner h6 {
         line-height: 20px;
-        display: block;
-        margin: 0 0 0 2px;
+        display: auto;
+        margin: 0 0 0px;
+        margin-top: 5px;
+        padding-top: 10px;
+        padding-bottom: 7px;
         color: ghostwhite;
-    } 
+        font: 14px/12px optima, sans- serifar;
+        color: #343434
+    }
 
-    input[type=range] {
-    box-sizing: border-box;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  width: 420px;
-  margin: 0;
-  padding: 0 px;
-  overflow: hidden;
-  border: 0;
-  border-radius: 0px;
-  outline: none;
-  background: linear-gradient(grey, grey) no-repeat center;
-  background-size: 100% 2px;
-  pointer-events: none;
-} /* change the style of slider */
+    .map-overlay h6 {
+        line-height: 20px;
+        display: auto;
+        margin: 0 0 0px;
+        margin-top: 0px;
+        padding-top: 0px;
+        padding-bottom: 5px;
+        color: ghostwhite;
+        font: 14px/12px optima, sans- serifar;
+        color: #343434
+    }
 
-    input[type=range]::-webkit-slider-thumb {
-  height: 10px;
-  width: 20px;
-  border-radius: 3px;
-  background-color: #fff;
-  position: relative;
-  margin: 0px 0;
- 
-  cursor: pointer;
-  -webkit-appearance: none;
-          appearance: none;
-  pointer-events: all;
-  box-shadow: 0 1px 4px 0.5px rgba(0, 0, 0, 0.8);
-} 
 
-    .multi-range input[type=range] {position: absolute;} 
-    
-    .multi-range input[type=range]:nth-child(2) {background: none;} 
 
     .button-30 {
   align-items: center;
@@ -114,13 +69,14 @@
   cursor: pointer;
   display: inline-flex;
   font-family: "JetBrains Mono",monospace;
-  height: 36px;
+  height: 30px;
   justify-content: center;
   line-height: 1;
   list-style: none;
   overflow: hidden;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-top: 5px;
   position: relative;
   text-align: left;
   text-decoration: none;
@@ -131,7 +87,7 @@
   white-space: nowrap;
   will-change: box-shadow,transform;
   font-size: 15px;
-  opacity: 0.95
+  opacity: 0.95;
 } /* change the style of button */
 
     .button-30:focus {
@@ -151,8 +107,8 @@
     .fly-button {
         
         border-radius: 8px;
-        padding-top: 20px;
-        padding-right: 20px;
+        padding-top: 0px;
+        padding-right: 0px;
         padding-bottom: 5px;
         padding-left: 0px;
         margin-bottom: 0px;

@@ -12,27 +12,34 @@
 
 <div class="map-overlay top">
     <div class="map-overlay-inner">
-        <h2>Global Building Area Map</h2>
+        <h2>Global Cities Building Area Map</h2>
+        
+        <h5><span class="dot" style="height: 10px; width: 10px; background-color: #7a0000; border-radius: 50%; display: inline-block;"></span> &#8804;50&#13217; 
+            <span class="dot" style="height: 10px; width: 10px; background-color: #cc0e00; border-radius: 50%; display: inline-block;"></span> 50-100&#13217; 
+            <span class="dot" style="height: 10px; width: 10px; background-color: #ef350b; border-radius: 50%; display: inline-block;"></span> 100-150&#13217;
+            <span class="dot" style="height: 10px; width: 10px; background-color: #fe662f; border-radius: 50%; display: inline-block;"></span> 150-200&#13217;
+            <span class="dot" style="height: 10px; width: 10px; background-color: #ffba7a; border-radius: 50%; display: inline-block;"></span> &#62;200&#13217;
+        </h5>
+        <h6>Average building area of 500m&times;500m grids. Data From <a href="https://sites.research.google/open-buildings/">Open Buildings</a>. </h6> 
     </div>
     <div class="fly-button">
-        <button class="button-30" id="Lagos">Lagos</button>
-        <button class="button-30" id="Delhi">Delhi</button>
-        <button class="button-30" id="Bogota">Bogota</button>
-        <button class="button-30" id="Manila">Manila</button>
+        <button class="button-30" id="Cairo">&#127466;&#127468;Cairo</button>
+        <button class="button-30" id="Kinshasa">&#x1f1e8;&#x1f1e9;Kinshasa</button>
+        <button class="button-30" id="Lagos">&#127475;&#127468;Lagos</button>
+        <button class="button-30" id="Luanda">&#127462;&#127476;Luanda</button>
+        <button class="button-30" id="Johannesburg"> &#127487;&#127462;Johannesburg</button>
+        
+        <button class="button-30" id="Manila">&#127477;&#127469;Manila</button>
+        <button class="button-30" id="Delhi">&#x1f1ee;&#x1f1f3;Delhi</button>
+        <button class="button-30" id="Dhaka">&#x1F1E7;&#x1F1E9;Dhaka</button>
+        <button class="button-30" id="Karachi">&#x1f1f5;&#x1f1f0;Karachi</button>
+        
+        <button class="button-30" id="Bogota">&#127464;&#127476;Bogota</button>
+        <button class="button-30" id="Lima">&#127477;&#127466;Lima</button>
+        
     </div>
 </div>
 
-<div class="bottom"  style='z-index:100; position: fixed;'>
-    <div class="bottom-inner">
-        <h5><span class="dot" style="height: 10px; width: 10px; background-color: #990000; border-radius: 50%; display: inline-block;"></span> Fatal 
-            <span class="dot" style="height: 10px; width: 10px; background-color: #e60000; border-radius: 50%; display: inline-block;"></span> Injured 
-            <span class="dot" style="height: 10px; width: 10px; background-color: #ff4d4d; border-radius: 50%; display: inline-block;"></span> No Casualty
-            <span class="dot" style="height: 10px; width: 10px; background-color: #ffe6e6; border-radius: 50%; display: inline-block;"></span> Unknown
-        </h5>
-
-        <h6>Data: <a href="https://www.start.umd.edu/gtd/">Global Terrorism Database™</a>.</h6> <h6>Further Reading: <a href="report.html"></a>.</h6>
-    </div>
-</div>
 
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiZGFudGVjaGVuMDgyNSIsImEiOiJjbGQxbGhhOTExaXBuM250Z2d6MWhzMnloIn0.EEsuGRqk0Uj_e1Q90WqPfQ'; // Mapbox Public Access token
@@ -53,50 +60,129 @@
     
     map.on('load', function() {    // load terrorist attacks point on the map
 
-        
-        document.getElementById('Lagos').addEventListener('click', () => {
+        document.getElementById('Cairo').addEventListener('click', () => {
             map.flyTo({
-                center: [3.3, 6.7], 
-                essential: true,
-                speed: 1,
-                zoom: 9,
-                bearing: 0,
-                pitch: 0
-            })
-        }); // fly to Afganistan when click the button
-        
-        document.getElementById('Delhi').addEventListener('click', () => {
-            map.flyTo({
-                center: [77.1, 28.6],  
+                center: [31.3, 30.1], 
                 essential: true,
                 speed: 1,
                 zoom: 10,
                 bearing: 0,
                 pitch: 0
             })
-        });  // fly to Levant when click the button
+        });
         
-        document.getElementById('Sahel').addEventListener('click', () => {
+        document.getElementById('Kinshasa').addEventListener('click', () => {
             map.flyTo({
-                center: [11, 11],
+                center: [15.3, -4.3], 
                 essential: true,
-                speed: 0.25,
-                zoom: 4,
+                speed: 1,
+                zoom: 10,
                 bearing: 0,
                 pitch: 0
             })
-        }); // fly to Levant when click the button
+        });
         
-        document.getElementById('South Asia').addEventListener('click', () => {
+        document.getElementById('Lagos').addEventListener('click', () => {
             map.flyTo({
-                center: [78, 22],
+                center: [3.3, 6.6], 
                 essential: true,
-                speed: 0.25,
-                zoom: 4,
+                speed: 1,
+                zoom: 10,
                 bearing: 0,
                 pitch: 0
             })
-        }); // fly to South Asia when click the button
+        });
+        
+        document.getElementById('Luanda').addEventListener('click', () => {
+            map.flyTo({
+                center: [13.3, -8.9], 
+                essential: true,
+                speed: 1,
+                zoom: 10,
+                bearing: 0,
+                pitch: 0
+            })
+        });
+        
+        document.getElementById('Johannesburg').addEventListener('click', () => {
+            map.flyTo({
+                center: [28.1, -26.2], 
+                essential: true,
+                speed: 1,
+                zoom: 10,
+                bearing: 0,
+                pitch: 0
+            })
+        });
+        
+        
+        
+        document.getElementById('Manila').addEventListener('click', () => {
+            map.flyTo({
+                center: [121, 14.6], 
+                essential: true,
+                speed: 1,
+                zoom: 10,
+                bearing: 0,
+                pitch: 0
+            })
+        });
+        
+        document.getElementById('Delhi').addEventListener('click', () => {
+            map.flyTo({
+                center: [77.2, 28.6],  
+                essential: true,
+                speed: 1,
+                zoom: 10,
+                bearing: 0,
+                pitch: 0
+            })
+        }); 
+        
+        document.getElementById('Dhaka').addEventListener('click', () => {
+            map.flyTo({
+                center: [90.4, 23.8], 
+                essential: true,
+                speed: 1,
+                zoom: 10,
+                bearing: 0,
+                pitch: 0
+            })
+        });
+        
+        document.getElementById('Karachi').addEventListener('click', () => {
+            map.flyTo({
+                center: [67, 24.9], 
+                essential: true,
+                speed: 1,
+                zoom: 10,
+                bearing: 0,
+                pitch: 0
+            })
+        });
+        
+        document.getElementById('Bogota').addEventListener('click', () => {
+            map.flyTo({
+                center: [-74.1, 4.65], 
+                essential: true,
+                speed: 1,
+                zoom: 11,
+                bearing: 0,
+                pitch: 0
+            })
+        });
+        
+        document.getElementById('Lima').addEventListener('click', () => {
+            map.flyTo({
+                center: [-77, -12], 
+                essential: true,
+                speed: 1,
+                zoom: 10,
+                bearing: 0,
+                pitch: 0
+            })
+        });
+        
         
         
         
@@ -121,35 +207,7 @@
     });
     
 
-    var lowerSlider = document.querySelector('#lower'),
-        upperSlider = document.querySelector('#upper'),
-        lowerVal = parseInt(lowerSlider.value),
-        upperVal = parseInt(upperSlider.value); // store the slider value
-
-    upperSlider.oninput = function() {
-        lowerVal = parseInt(lowerSlider.value);
-        upperVal = parseInt(upperSlider.value);
-        
-        if (upperVal < lowerVal + 1) {
-            lowerSlider.value = upperVal - 1;
-            if (lowerVal == lowerSlider.min) {
-                upperSlider.value = parseInt(lowerSlider.min) +1;
-            }
-        }
-    }; // Limit slider range and change the other one depending on the value of the sliders
-      
-    lowerSlider.oninput = function() {
-        lowerVal = parseInt(lowerSlider.value);
-        upperVal = parseInt(upperSlider.value);
-        
-        if (lowerVal > upperVal - 1) {
-            upperSlider.value = lowerVal + 1;
-            if (upperVal == upperSlider.max) {
-                lowerSlider.value = parseInt(upperSlider.max) - 1;
-            }
-        }
-    }; // Limit slider range and change the other one depending on the value of the sliders
-
+    
 </script>
 
 </body>
