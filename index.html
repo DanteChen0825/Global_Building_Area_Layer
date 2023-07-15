@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Global Building Area Map</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+    <link href='map.css' rel='stylesheet' />
+</head>
+<body>
+<div id='map'></div>
+
+<div class="map-overlay top">
+    <div class="map-overlay-inner">
+        <h2>Global Building Area Map</h2>
+    </div>
+    <div class="fly-button">
+        <button class="button-30" id="Lagos">Lagos</button>
+        <button class="button-30" id="Delhi">Delhi</button>
+        <button class="button-30" id="Bogota">Bogota</button>
+        <button class="button-30" id="Manila">Manila</button>
+    </div>
+</div>
+
+<div class="bottom"  style='z-index:100; position: fixed;'>
+    <div class="bottom-inner">
+        <h5><span class="dot" style="height: 10px; width: 10px; background-color: #990000; border-radius: 50%; display: inline-block;"></span> Fatal 
+            <span class="dot" style="height: 10px; width: 10px; background-color: #e60000; border-radius: 50%; display: inline-block;"></span> Injured 
+            <span class="dot" style="height: 10px; width: 10px; background-color: #ff4d4d; border-radius: 50%; display: inline-block;"></span> No Casualty
+            <span class="dot" style="height: 10px; width: 10px; background-color: #ffe6e6; border-radius: 50%; display: inline-block;"></span> Unknown
+        </h5>
+
+        <h6>Data: <a href="https://www.start.umd.edu/gtd/">Global Terrorism Database™</a>.</h6> <h6>Further Reading: <a href="report.html"></a>.</h6>
+    </div>
+</div>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGFudGVjaGVuMDgyNSIsImEiOiJjbGQxbGhhOTExaXBuM250Z2d6MWhzMnloIn0.EEsuGRqk0Uj_e1Q90WqPfQ'; // Mapbox Public Access token
+    
+    // add map
+    var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/dantechen0825/clk4886fl00gx01qyc3kl54za', // stylesheet
+    center: [31.3, 30.1], // starting position [lng, lat] 
+    zoom: 10, // starting zoom
+    minZoom:4,
+    bearing: -10,
+    pitch: 45
+    });
+    
+    map.addControl(new mapboxgl.NavigationControl(), 'bottom-right'); // add map control bar
+
+    
+    map.on('load', function() {    // load terrorist attacks point on the map
+
+        
+        document.getElementById('Lagos').addEventListener('click', () => {
+            map.flyTo({
+                center: [3.3, 6.7], 
+                essential: true,
+                speed: 1,
+                zoom: 9,
+                bearing: 0,
+                pitch: 0
+            })
+        }); // fly to Afganistan when click the button
+        
+        document.getElementById('Delhi').addEventListener('click', () => {
+            map.flyTo({
+                center: [77.1, 28.6],  
+                essential: true,
+                speed: 1,
+                zoom: 10,
+                bearing: 0,
+                pitch: 0
+            })
+        });  // fly to Levant when click the button
+        
+        document.getElementById('Sahel').addEventListener('click', () => {
+            map.flyTo({
+                center: [11, 11],
+                essential: true,
+                speed: 0.25,
+                zoom: 4,
+                bearing: 0,
+                pitch: 0
+            })
+        }); // fly to Levant when click the button
+        
+        document.getElementById('South Asia').addEventListener('click', () => {
+            map.flyTo({
+                center: [78, 22],
+                essential: true,
+                speed: 0.25,
+                zoom: 4,
+                bearing: 0,
+                pitch: 0
+            })
+        }); // fly to South Asia when click the button
+        
+        
+        
+        var mypopup = new mapboxgl.Popup({offset:[0,0],closeButton: false}); // add popup
+        
+        map.on('mouseover', 'Terrorist Attacks', function (e) {
+                    mypopup
+                        .setLngLat(e.features[0].geometry.coordinates)
+                        .setHTML("<h2>" + e.features[0].properties.country_txt + "</h2>" + e.features[0].properties.summary + "<p> Source:" + e.features[0].properties.scite1 + "</p>")
+                        .addTo(map);
+                }); // popup content
+    
+        map.on('mouseenter', 'Terrorist Attacks', function () {
+                  map.getCanvas().style.cursor = 'pointer';
+            }); // popup appear when the mouse enter
+  
+        map.on('mouseleave', 'Terrorist Attacks', function () {
+                map.getCanvas().style.cursor = '';
+                mypopup.remove();
+            });  // delete the popup when the mouse leave
+
+    });
+    
+
+    var lowerSlider = document.querySelector('#lower'),
+        upperSlider = document.querySelector('#upper'),
+        lowerVal = parseInt(lowerSlider.value),
+        upperVal = parseInt(upperSlider.value); // store the slider value
+
+    upperSlider.oninput = function() {
+        lowerVal = parseInt(lowerSlider.value);
+        upperVal = parseInt(upperSlider.value);
+        
+        if (upperVal < lowerVal + 1) {
+            lowerSlider.value = upperVal - 1;
+            if (lowerVal == lowerSlider.min) {
+                upperSlider.value = parseInt(lowerSlider.min) +1;
+            }
+        }
+    }; // Limit slider range and change the other one depending on the value of the sliders
+      
+    lowerSlider.oninput = function() {
+        lowerVal = parseInt(lowerSlider.value);
+        upperVal = parseInt(upperSlider.value);
+        
+        if (lowerVal > upperVal - 1) {
+            upperSlider.value = lowerVal + 1;
+            if (upperVal == upperSlider.max) {
+                lowerSlider.value = parseInt(upperSlider.max) - 1;
+            }
+        }
+    }; // Limit slider range and change the other one depending on the value of the sliders
+
+</script>
+
+</body>
+</html>
