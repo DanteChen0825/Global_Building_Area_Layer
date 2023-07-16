@@ -55,9 +55,18 @@
         color: #343434
     }
 
+.map-overlay-bottom {
+        font: 20px/12px optima, sans- serifar;
+        position: absolute;
+        width: 100px;
+        top: 0%;
+        left: 93%;
+        padding: 5px;
+    }
 
 
-    .button-30 {
+
+.button-30 {
   align-items: center;
   appearance: none;
   background-color: #FCFCFD;
@@ -148,5 +157,7 @@
     .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
     border-left-color: rgba(128, 128, 128, .6)  !important;
     }
+
+
 
 </style>
